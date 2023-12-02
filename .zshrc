@@ -1,8 +1,6 @@
-# Enable colors and change prompt:
-
 # Prompt
 PS1=" %F{green}%1~%f %F{blue}❯%f "
-# Lines configured by zsh-newuser-install
+# History
 HISTFILE=~/zsh/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
@@ -40,7 +38,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # syntax highlighting
-source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -58,12 +56,17 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Enable searching through history
-bindkey '^R' history-incremental-pattern-search-backward
+## Edit line in vim buffer ctrl-v
+# autoload edit-command-line; zle -N edit-command-line
+# bindkey '^v' edit-command-line
 
-# Edit line in vim buffer ctrl-v
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^v' edit-command-line
-# Enter vim buffer from normal mode
-autoload -U edit-command-line && zle -N edit-command-line && bindkey -M vicmd "^v" edit-command-line
+# # Enter vim buffer from normal mode
+# autoload -U edit-command-line && zle -N edit-command-line && bindkey -M vicmd "^v" edit-command-line
+
+# Use fuzzyfinder
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+# Personal aliases
+source ~/.config/zsh/.aliases
 
