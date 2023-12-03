@@ -1,7 +1,7 @@
 # Prompt
 PS1=" %F{green}%1~%f %F{blue}❯%f "
 # History
-HISTFILE=~/zsh/.zsh_history
+HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
 
@@ -45,4 +45,4 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # Personal aliases
-source ~/.config/zsh/.aliases
+#source ~/.config/zsh/.aliases
