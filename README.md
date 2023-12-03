@@ -6,15 +6,15 @@
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ## Instructions
-set ZDOTDIR
+Set $ZDOTDIR
 ```
 echo 'export ZDOTDIR="$HOME/.config/zsh"' >> $HOME/.zprofile
 ```
-clone config
+Clone config
 ```
-git clone https://codeberg.org/doesitmatter0/zsh-config.git ~/.config/zsh
+git clone --depth 1 https://codeberg.org/doesitmatter0/zsh-config.git ~/.config/zsh
 ```
-- run 'zsh' command and test basic commands to make sure zsh is working.
+- Run 'zsh' command and test basic commands to make sure zsh is working.
 
 ## Changing default shell to zsh
 Locate zsh file path and append to /etc/shells
