@@ -1,7 +1,8 @@
 # My ZSH Config
 
+- For Arch Linux
+
 ## Requirements
-- zsh
 - [fzf](https://github.com/junegunn/fzf)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
