@@ -40,9 +40,11 @@ fi
 # syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Use fuzzyfinder
+# fzf
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # Personal aliases
-#source ~/.config/zsh/.aliases
+alias vpy='./venv/bin/python'
+alias vpip='./venv/bin/pip'
+alias CD='cd "$(fd --type d -H | fzf)"'
