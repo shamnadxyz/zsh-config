@@ -1,5 +1,5 @@
 # Prompt
-PS1=" %F{green}%1~%f %F{blue}❯%f "
+PS1=" %F{blue}❯%f "
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -54,6 +54,10 @@ setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
 setopt PUSHD_IGNORE_DUPS
 ## This reverts the +/- operators.
 setopt PUSHD_MINUS
+
+precmd() {
+  echo " $(pwd)"
+}
 
 # syntax highlighting
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
