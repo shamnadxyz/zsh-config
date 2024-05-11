@@ -56,7 +56,11 @@ setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_MINUS
 
 precmd() {
-  echo " $(pwd)"
+  if [ -d $PWD/.git ]; then
+    echo " ${PWD##*/} on $(git rev-parse --abbrev-ref HEAD)"
+  else
+    echo " ${PWD/${HOME}/~}"
+  fi
 }
 
 # syntax highlighting
