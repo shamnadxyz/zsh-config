@@ -1,9 +1,13 @@
 # Prompt
-PS1=" %F{green}%1~%f %F{blue}❯%f "
+# PS1=" %F{green}%1~%f %F{blue}❯%f "
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
+
+# Starship
+eval "$(starship init zsh)"
 
 # Basic auto/tab complete:
 autoload -U compinit && compinit -u

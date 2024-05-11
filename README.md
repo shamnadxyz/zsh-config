@@ -5,6 +5,7 @@
 ## Requirements
 - [fzf](https://github.com/junegunn/fzf)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [starship](https://github.com/starship/starship)
 
 ## Instructions
 Set $ZDOTDIR
