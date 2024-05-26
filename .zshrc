@@ -52,7 +52,7 @@ chpwd_dirstack() {
 	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
 }
 add-zsh-hook -Uz chpwd chpwd_dirstack
-DIRSTACKSIZE='20'
+DIRSTACKSIZE='10'
 setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
 ## Remove duplicate entries
 setopt PUSHD_IGNORE_DUPS
@@ -61,6 +61,9 @@ setopt PUSHD_MINUS
 
 # syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#command not found handler
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # fzf
 source /usr/share/fzf/key-bindings.zsh

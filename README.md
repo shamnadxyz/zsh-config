@@ -6,6 +6,11 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [starship](https://github.com/starship/starship)
+- [pkgfile](https://github.com/starship/starship)
+
+```
+sudo pacman -S zsh fzf zsh-syntax-highlighting starship pkgfile --needed
+```
 
 ## Instructions
 Set $ZDOTDIR
