@@ -59,6 +59,23 @@ setopt PUSHD_IGNORE_DUPS
 ## This reverts the +/- operators.
 setopt PUSHD_MINUS
 
+# append history list to the history file; this is the default but we make sure
+# because it's required for share_history.
+setopt append_history
+# Write to the history file immediately, not when the shell exits.
+setopt inc_append_history
+# if a command is issued that can't be executed as a normal command, and the
+# command is the name of a directory, perform the cd command to that directory.
+setopt auto_cd
+# in order to use #, ~ and ^ for filename generation grep word
+# *~(*.gz|*.bz|*.bz2|*.zip|*.Z) -> searches for word not in compressed files
+# don't forget to quote '^', '~' and '#'!
+setopt extended_glob
+# remove command lines from the history list when the first character on the
+# line is a space
+setopt histignorespace
+setopt hist_ignore_dups
+
 # syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
