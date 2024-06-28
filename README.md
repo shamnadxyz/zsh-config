@@ -7,9 +7,10 @@
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [starship](https://github.com/starship/starship)
 - [pkgfile](https://github.com/starship/starship)
+- [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 
 ```
-sudo pacman -S zsh fzf zsh-syntax-highlighting starship pkgfile --needed
+sudo pacman -S zsh fzf zsh-syntax-highlighting starship wl-clipboard pkgfile --needed
 ```
 
 ## Instructions

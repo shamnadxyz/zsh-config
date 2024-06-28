@@ -59,11 +59,6 @@ setopt PUSHD_IGNORE_DUPS
 ## This reverts the +/- operators.
 setopt PUSHD_MINUS
 
-# append history list to the history file; this is the default but we make sure
-# because it's required for share_history.
-setopt append_history
-# Write to the history file immediately, not when the shell exits.
-setopt inc_append_history
 # if a command is issued that can't be executed as a normal command, and the
 # command is the name of a directory, perform the cd command to that directory.
 setopt auto_cd
@@ -75,6 +70,13 @@ setopt extended_glob
 # line is a space
 setopt histignorespace
 setopt hist_ignore_dups
+
+# copy current working directory to clipboard
+copy_pwd() {
+  wl-copy $PWD
+}
+zle -N copy_pwd
+bindkey "^p" copy_pwd
 
 # syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
