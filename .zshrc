@@ -67,6 +67,12 @@ setopt extended_glob
 setopt histignorespace
 setopt hist_ignore_dups
 
+# copy current working directory to clipboard
+copy_pwd() {
+  wl-copy $PWD
+}
+zle -N copy_pwd
+bindkey "^p" copy_pwd
 
 # syntax highlighting
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

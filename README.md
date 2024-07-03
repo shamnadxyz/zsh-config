@@ -14,7 +14,7 @@ echo 'export ZDOTDIR="$HOME/.config/zsh"' >> $HOME/.zprofile
 ```
 Clone config
 ```
-git clone --depth 1 https://codeberg.org/doesitmatter0/zsh-config.git ~/.config/zsh
+git clone --depth 1 https://codeberg.org/doesitmatter0/zsh-config.git -b debian ~/.config/zsh
 ```
 ## Changing default shell to zsh
 Locate zsh file path and append to /etc/shells
