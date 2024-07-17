@@ -33,3 +33,7 @@ Set ZSH as default
 ```
 sudo chsh -s $(which zsh) $USER
 ```
+Create Dirstack File
+```
+touch $HOME/.cache/dirs
+```
