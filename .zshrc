@@ -86,5 +86,4 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-source ${HOME}/.cache/wal/colors.sh
 source ${HOME}/.config/zsh/alias.sh
