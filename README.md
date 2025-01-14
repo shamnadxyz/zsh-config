@@ -21,7 +21,7 @@ echo 'export ZDOTDIR="$HOME/.config/zsh"' >> $HOME/.zprofile
 ```
 Clone config
 ```
-git clone --depth 1 https://codeberg.org/doesitmatter0/zsh-config.git ~/.config/zsh
+git clone --depth 1 https://github.com/shamnadxyz/zsh-config.git ~/.config/zsh
 ```
 - Run 'zsh' command and test basic commands to make sure zsh is working.
 
