@@ -8,9 +8,10 @@
 - [starship](https://github.com/starship/starship)
 - [pkgfile](https://github.com/starship/starship)
 - [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
 
 ```
-sudo pacman -S zsh fzf zsh-syntax-highlighting starship wl-clipboard pkgfile --needed
+sudo pacman -S zsh fzf zsh-syntax-highlighting starship wl-clipboard zoxide pkgfile --needed
 ```
 
 ## Instructions
