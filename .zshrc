@@ -1,5 +1,5 @@
 # Prompt
-# PS1=" %F{green}%1~%f %F{blue}❯%f "
+PS1=" %F{green}%1~%f %F{blue}❯%f "
 
 # History
 HISTFILE=~/.zsh_history
@@ -18,7 +18,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots)
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -44,19 +44,23 @@ fi
 
 # Dirstack
 autoload -Uz add-zsh-hook
+
 DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/dirs"
 if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
 	dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
+	[[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
 fi
 chpwd_dirstack() {
 	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
 }
 add-zsh-hook -Uz chpwd chpwd_dirstack
-DIRSTACKSIZE='10'
+DIRSTACKSIZE='20'
 setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
-## Remove duplicate entries
+
+# Remove duplicate entries
 setopt PUSHD_IGNORE_DUPS
-## This reverts the +/- operators.
+
+# This reverts the +/- operators.
 setopt PUSHD_MINUS
 
 # if a command is the name of a directory, perform the cd command to that directory.
@@ -70,12 +74,15 @@ setopt extended_glob
 setopt histignorespace
 setopt hist_ignore_dups
 
-# copy current working directory to clipboard
-copy_pwd() {
-  wl-copy $PWD
+function precmd {
+    if ! builtin zle; then
+        print -n "\e]133;D\e\\"
+    fi
 }
-zle -N copy_pwd
-bindkey "^p" copy_pwd
+
+function preexec {
+    print -n "\e]133;C\e\\"
+}
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -125,14 +132,16 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
-# syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+imports=(
+	"${HOME}/.config/zsh/alias.sh"
+	"/usr/share/skim/key-bindings.zsh"
+	"/usr/share/doc/pkgfile/command-not-found.zsh"
+	"/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+	"/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+)
 
-#command not found handler
-source /usr/share/doc/pkgfile/command-not-found.zsh
-
-# fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-source ${HOME}/.config/zsh/alias.sh
+for file in "${imports[@]}";do
+	if [ -s "$file" ];then
+		source "$file"
+	fi
+done
