@@ -7,12 +7,11 @@
 - [pkgfile](https://wiki.archlinux.org/title/Pkgfile)
 - [sk](https://github.com/skim-rs/skim)
 - [starship](https://github.com/starship/starship)
-- [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ```sh
-sudo pacman -S zsh fzf zsh-syntax-highlighting starship wl-clipboard\
+sudo pacman -S zsh fzf zsh-syntax-highlighting starship wl-clipboard \
     zoxide pkgfile --needed
 ```
 
@@ -20,17 +19,17 @@ sudo pacman -S zsh fzf zsh-syntax-highlighting starship wl-clipboard\
 
 Set $ZDOTDIR
 
-```sh
-echo 'export ZDOTDIR="$HOME/.config/zsh"' >> $HOME/.zprofile
-```
-
 Clone config
 
 ```sh
-git clone --depth 1 https://github.com/shamnadxyz/zsh-config.git ~/.config/zsh
+git clone --depth 1 https://github.com/shamnadxyz/zsh-config.git
 ```
 
-- Run 'zsh' command and test basic commands to make sure zsh is working.
+- Copy .zshrc to $HOME directory
+
+```sh
+cp zsh-config/.zshrc ~/.zshrc
+```
 
 ## Changing default shell to zsh
 

@@ -133,7 +133,7 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
 imports=(
-	"${HOME}/.config/zsh/alias.sh"
+	"$HOME/.alias"
 	"/usr/share/skim/key-bindings.zsh"
 	"/usr/share/doc/pkgfile/command-not-found.zsh"
 	"/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
